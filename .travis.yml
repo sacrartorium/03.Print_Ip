@@ -22,4 +22,6 @@ deploy:
 - provider: script
   skip_cleanup: true
   script:
+  - ls -l
+  - echo "To bintray:"
   - curl -v -T $NAMEP -usacrartorium:$BINTRAY_API_KEY "https://api.bintray.com/content/sacrartorium/otus/03/$TRAVIS_BUILD_NUMBER/$NAMEP;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
