@@ -5,20 +5,20 @@ env:
 before_script:
 - echo "deb http://archive.ubuntu.com/ubuntu xenial main universe" | sudo tee -a /etc/apt/sources.list
 - sudo apt-get update -qq
-- sudo apt-get install doxygen
+- sudo apt-get install doxygen dot
 script:
 - cmake .
 - cmake --build .
 - cmake --build . --target package
 - doxygen doxygen.conf
 deploy:
-#- provider: pages
-#  skip_cleanup: true
-#  github_token: $GITHUB_TOKEN
-#  keep_history: true
-#  local_dir: "doc/html"
-#  on:
-#    branch: master
+- provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  local_dir: "doc/html"
+  on:
+    branch: main
 - provider: script
   skip_cleanup: true
   script:
