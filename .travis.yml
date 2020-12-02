@@ -12,13 +12,13 @@ script:
 - cmake --build . --target package
 - doxygen doxygen.conf
 deploy:
-- provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  keep_history: true
-  local_dir: "doc/html"
-  on:
-    branch: main
+#- provider: pages
+#  skip_cleanup: true
+#  github_token: $GITHUB_TOKEN
+#  keep_history: true
+#  local_dir: "doc/html"
+#  on:
+#    branch: main
 - provider: script
   skip_cleanup: true
   script:
